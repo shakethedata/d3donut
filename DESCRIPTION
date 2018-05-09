@@ -1,0 +1,9 @@
+Package: d3donut
+Type: Package
+Title: HTMLwidget for D3 donut chart
+Version: 0.1
+Date: 2017-07-21
+Author: Matthew Brierley
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: HTMLwidget for D3 donut chart
+License: What license is it under?
