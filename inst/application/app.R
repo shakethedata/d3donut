@@ -3,7 +3,7 @@ library(shiny)
 library(dplyr)
 
 
-df <- readr:: read_csv ('~/d3donut/inst/application/donut2.csv')
+#df <- readr:: read_csv ('~/d3donut/inst/application/donut2.csv')
 
 ###############################
 ## UI
@@ -18,11 +18,14 @@ ui = shinyUI(fluidPage(
 
 
 server = function(input, output) {
+  read_data <- reactive ({
+    df <- readr::read_csv ('./www/donut2.csv')
+  })
   output$test <- renderD3donut({
-    d3donut (message = df)
+    d3donut (message = read_data())
   })
   output$test2 <- renderD3donut({
-    d3donut (message = df)
+    d3donut (message = read_data())
   })
 }
 
