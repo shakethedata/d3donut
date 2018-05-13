@@ -10,9 +10,9 @@ library(dplyr)
 ###############################
 
 ui = shinyUI(fluidPage(
-  
-             d3donutOutput('test'),
-             d3donutOutput('test2')
+             h4("Example of embedding d3.js file into htmlwidget for use in Shiny app"),
+             d3donutOutput('test', height = 700),
+             d3donutOutput('test2', height = 700)
                  
 ))
 

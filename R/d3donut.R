@@ -1,6 +1,6 @@
-#' <Add Title>
+#' R fuction linked to d3donut d3.js script
 #'
-#' <Add Description>
+#' Standard htmlwidget code for linking R function to d3donut d3.js script.
 #'
 #' @import htmlwidgets
 #'
