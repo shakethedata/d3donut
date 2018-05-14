@@ -25,8 +25,11 @@ df_conv <-
 }
 
 
-df <-readr::read_csv ('./www/donut2.csv')
+df <-readr::read_csv ('./raw/donut2.csv')
 df2 <- filter(df, id != "CT", !stringr::str_detect(links, "CT"))
-df_conv1 <- convert_data (df)
-df_conv2 <- convert_data (df2)
+donut_data1 <- convert_data (df)
+donut_data2 <- convert_data (df2)
+save(donut_data1, file="data/donut_data1.rda")
+save(donut_data2, file="data/donut_data2.rda")
+
 
