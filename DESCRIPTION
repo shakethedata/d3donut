@@ -7,3 +7,4 @@ Author: Matthew Brierley
 Maintainer: Who to complain to <yourfault@somewhere.net>
 Description: HTMLwidget for D3 donut chart
 License: What license is it under?
+LazyData: true

@@ -20,14 +20,18 @@ and allowing varying data to be included. In fact, this function will create an 
 the htmlwidget directly."),
              br(),
              tabsetPanel(id="d3methods",
+                         tabPanel("Using r2d3",
+                                  selectInput("d3data", "Select data", c("Data1"="donut_data1", "Data2"="donut_data2")),
+                                  div(id = "test", d3Output("f3", height = 700))
+                         ),
+                         
                          tabPanel("Using htmlwidgets",
+                                 
                            d3donutOutput('f1', height = 700),
                            d3donutOutput('f2', height = 700)
-                         ),
-                         tabPanel("Using r2d3",
-                            selectInput("d3data", "Select data", c("Data1"="donut_data1", "Data2"="donut_data2")),
-                            d3Output("f3", height=700)
-                                  ),
+                       
+                           ),
+                        
                          tabPanel("Session Info",
                                   br(),
                                   verbatimTextOutput("si")
@@ -54,7 +58,7 @@ server = function(input, output) {
   
   output$f3 <- renderD3({
     df <- get(input$d3data)
-    r2d3( data=data, script = "./www/ex_d3donut.js")
+    r2d3( data=df, script = "./www/ex_d3donut.js")
       })
   
   
