@@ -24,12 +24,18 @@ df_conv <-
   tidyr::unnest()
 }
 
-
+library(dplyr)
 df <-readr::read_csv ('./raw/donut2.csv')
-df2 <- filter(df, id != "CT", !stringr::str_detect(links, "CT"))
+df2 <- dplyr::filter(df, id != "CT", !stringr::str_detect(links, "CT"))
 donut_data1 <- convert_data (df)
 donut_data2 <- convert_data (df2)
-save(donut_data1, file="data/donut_data1.rda")
-save(donut_data2, file="data/donut_data2.rda")
+
+# save(donut_data1, file="data/donut_data1.rda")
+# save(donut_data2, file="data/donut_data2.rda")
+use_data(donut_data1)
+use_data(donut_data2)
+
+
+
 
 

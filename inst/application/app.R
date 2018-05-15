@@ -11,13 +11,14 @@ library(r2d3)
 #------------------------------
 
 ui = shinyUI(fluidPage(
-             h4("Example of embedding d3.js file into htmlwidget for use in Shiny app"),
+             h4("Example of embedding d3.js script into htmlwidget for use in Shiny app"),
+             br(),
              p("There are a few possibilities to include d3.js visualisations within a Shiny app. For a fixed script it is possible to source
-directly into the Shiny app. For the greatest flexibility the d3.js script can be incorporated into a htmlwidget and placed within an R library. This 
-also permits R to be able to receive information or data back from the htmlwidget for further display/processing. Finally, using the new r2d3 package
-it is possible to use d3Output and renderD3 with the r2d3 function which will run a d3.js script taking care of data conversion, defining the svg
-and allowing varying data to be included. In fact, this function will create an htmlwidget behind the scenes, but offers less flexibility than creating
-the htmlwidget directly."),
+the js file directly into the Shiny app. The new r2d3 package
+contains the shiny functions d3Output and renderD3. Inside the renderD3 call another function,  r2d3  will run a d3.js script taking care of any
+data conversion, defining the svg and allowing varying R data to be entered controlled by user interaction with Shiny. In fact, this function will create an htmlwidget behind the scenes, 
+but offers less flexibility than creating the htmlwidget directly. For the greatest flexibility the d3.js script can be incorporated into a htmlwidget and placed within an R library. This 
+also permits the R session to be able to receive information or data back from the htmlwidget for further display/processing."),
              br(),
              tabsetPanel(id="d3methods",
                          tabPanel("Using r2d3",
