@@ -5,6 +5,7 @@ HTMLWidgets.widget({
   type: 'output',
 
   factory: function(el, width, height) {
+    var elementId = el.id;
 
     // TODO: define shared variables for this instance
 
@@ -69,6 +70,8 @@ function angle(d) {
                                 return sectorcolors[sectors.indexOf(d.data.sector)];
                     })
 .on('mouseenter', function(d) {
+  
+  
 
 
  var segmentselected = false;
@@ -80,6 +83,10 @@ d3.selectAll("path").each (function (d) {
 })
 
 if (segmentselected == false) {
+  
+  // Note that element ID is defined at the top of the HTMLwidget //
+   Shiny.onInputChange( elementId + "_selected", d.data.id);
+   console.log(d.data);
 
     // Change the background fill colour
     d3.select(this).attr('fill', 'purple');
@@ -115,7 +122,8 @@ if (segmentselected == false) {
         .attr('cy', function(d) {if (d.data.id.indexOf(currID) != -1 | d.data.links.indexOf(currID) != -1) {return  -(radius-donutWidth)*Math.sin((Math.PI/2) - 0.5*(d.startAngle + d.endAngle));}})
         .attr('r', function(d) {if (d.data.id.indexOf(currID) != -1 | d.data.links.indexOf(currID) != -1) {return '3';}});
 
-
+   
+   
     }
     })
 
@@ -158,6 +166,10 @@ if (segmentselected == false) {
         }
 
     });
+    
+ 
+    
+    
 
 
     var legend = svg.selectAll()
@@ -184,3 +196,9 @@ if (segmentselected == false) {
     };
   }
 });
+
+
+/*
+   Shiny.onInputChange( elementId + "_selected", d.data.id);
+   console.log(d.data);
+*/
